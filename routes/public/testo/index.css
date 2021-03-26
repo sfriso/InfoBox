@@ -1,0 +1,333 @@
+
+
+body{
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	widows: 100%;
+	
+	background-color: #141685;
+	color: black;
+	font-family: "Verdana";
+	z-index: 1;
+}
+#background_video{
+	border-radius: 0;
+	z-index: 0;}
+
+input[type=text] {
+
+	border: 2px solid white;
+  border-radius: 4px;
+  font-size: 1.25em;
+}
+input[type=password] {
+
+	border: 2px solid white;
+  border-radius: 4px;
+  font-size: 1.25em;
+}
+button{
+	background-color: white;
+	border: 2px solid white;
+	border-radius: 4px;
+	font-size: 1.5em;
+}
+
+
+
+.elemento{
+	border-radius: 10px 10px 10px 10px;
+	background-color: rgba(116, 171, 235, 0.5);
+	border-block-color: black;
+	
+}
+
+.testo_campanella{
+	text-align: center;
+	font-size: 110%;
+	margin: 4%;
+	margin-top: 4%;
+	top: 50%;
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
+#login {
+	position: absolute;
+	top: -50%;
+	left: 0.5%;
+	text-align: center;
+	width: 99%;
+	height: 20%;
+	z-index: -30;
+	padding: 20px 0.5px;
+	border-radius: 10px 10px 10px 10px;
+	background-color: #92B6D5;
+	transition: linear 0.2s;
+	
+}
+
+#login h1{
+    color: white;
+	text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+	
+}
+#video {
+	position: absolute;
+	left: 0.5%;
+	top: 0.5%;
+	height: 49.25%;
+	width: 49.25%;
+	z-index: 1;
+
+}
+#campanella {
+	position: absolute;
+	left: 50.25%;
+	top: 0.5%;
+	height: 49.25%;
+	width: 24.375%; 
+	text-align: center;
+}
+#orologio {
+	position: absolute;
+	left: 75.125%;
+	top: 0.5%;
+	height: 15%;
+	width: 24.375%;
+	font-size:200%;
+	text-align: center;
+}
+#data {
+	position: relative;
+    
+    font-weight: bold;
+	text-align: center;
+	top: 25%;
+}
+#ora{
+	position: relative;
+    
+    font-weight: bold;
+	text-align: center;
+	top: 25%;
+}
+#meteo {
+	position: absolute;
+	left: 75.125%;
+	top: 16%;
+	height: 33.75%;
+	width: 24.375%;
+
+}
+
+#avviso {
+	position: absolute;
+	left: 0.5%;
+	top: 50.25%;
+	height: 49.25%;
+	width: 24.375%;
+	font-family: "Verdana";
+
+}
+
+#eventi {
+	position: absolute;
+	left: 25.375%;
+	top: 50.25%;
+	height: 49.25%;
+	width: 24.375%;
+
+}
+
+#attivita{
+	position: absolute;
+	left: 50.25%;
+	top: 50.25%;
+	height: 49.25%;
+	width: 24.375%;
+
+
+}
+
+#notizie {
+	position: absolute;
+	left: 75.125%;
+	top: 50.25%;
+	height: 49.25%;
+	width: 24.375%; 
+
+}
+.title  {
+	position: absolute;
+	font-size: 150%;
+	top: 0%;
+	margin: 5%;
+	text-align: justify;
+	text-align-last: center;
+}
+.description {
+	position: absolute;
+	text-align: justify;
+    text-align-last: center;
+	font-size: 150%;
+	top: 20%;
+	margin: 10%;
+	margin-bottom: 5%;
+	text-align-last: left;
+	top: 50%;
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
+
+
+video{
+	position: absolute;
+	object-fit:cover;
+	left: 0%;
+	top: 0%;
+	height: 100%;
+	width: 100%;
+	z-index: 100;
+	transition:opacity 2s;
+	border-radius: 10px 10px 10px 10px;
+}
+
+.weather-app {
+    
+    position: center;
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    overflow: hidden;
+    text-align:center;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.temperature {
+    margin-top:5%;
+    margin-bottom:5%;
+    font-size:200%;
+    font-weight: bold;
+    
+}
+
+.image{
+    opacity:0;
+    transition:opacity 2s;
+    width:100%;
+    height:100%;
+    position:absolute;
+	object-fit:cover;
+	border-radius: 10px 10px 10px 10px;
+    z-index: -10;
+}
+
+.container {
+    width:100%;
+    height:100%;
+}
+
+.titleavviso{
+	position: absolute;
+	font-size: 150%;
+	top: 0%;
+	margin: 5%;
+	text-align: justify;
+	text-align-last: center;
+}
+
+.titleeventi{
+	position: absolute;
+	font-size: 150%;
+	top: 0%;
+	margin: 5%;
+	text-align: justify;
+	text-align-last: center;
+}
+
+.titleattivita{
+	position: absolute;
+	font-size: 150%;
+	top: 0%;
+	margin: 5%;
+	text-align: justify;
+	text-align-last: center;
+}
+
+.descriptionavviso {
+	position: absolute;
+	text-align: justify;
+	font-size: 110%;
+	margin: 10%;
+	margin-bottom: 5%;
+	text-align-last: center;
+	top: 40%;
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
+
+.descriptionattivita {
+	position: absolute;
+	text-align: justify;
+	font-size: 110%;
+	margin: 10%;
+	margin-bottom: 5%;
+	text-align-last: center;
+	top: 40%;
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
+.descriptioneventi {
+	position: absolute;
+	text-align: justify;
+	font-size: 110%;
+	margin: 10%;
+	margin-bottom: 5%;
+	text-align-last: center;
+	top: 40%;
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
+
+.dataeventi{
+	position: absolute;
+	text-align: center;
+	font-size: 90%;
+	top: 90%;
+	margin: 10%;
+	margin-bottom: 20%;
+	text-align-last: center;
+	top: 80%;
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
+
+.dataavviso{
+	position: absolute;
+	text-align: center;
+	font-size: 90%;
+	top: 90%;
+	margin: 10%;
+	margin-bottom: 20%;
+	text-align-last: center;
+	top: 80%;
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
+.dataattivita{
+	position: absolute;
+	text-align: center;
+	font-size: 90%;
+	top: 90%;
+	margin: 10%;
+	margin-bottom: 20%;
+	text-align-last: center;
+	top: 80%;
+  	-ms-transform: translateY(-50%);
+  	transform: translateY(-50%);
+}
+#tutto_schermo {
+	margin-top: 1%;
+}

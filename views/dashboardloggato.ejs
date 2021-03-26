@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="it" >
+  <head>
+    <meta charset="UTF-8"/>
+    <title>InfoBox App</title>
+		<link rel="stylesheet" href="/testo/index.css">
+		</head>
+		<body>
+		<video muted id="background_video" loop autoplay="autoplay"></video>
+		<div class ="elemento" id="video" onclick="loginmenu()">
+			<div class="container">	
+				<% for (i = 0; i < array.length; i++){ 
+					var lastThree = array[i].substr(array[i].length - 3);
+					if( lastThree == 'avi' || lastThree == 'mp4') { %>
+				<video   id="<%=i%>" class="video" style="opacity:0" muted >
+					<source src='/slider/<%= array[i] %>'  type="video/mp4">
+				</video>
+				<% } else { %>
+   				 <img src='/slider/<%= array[i]%>' class="image" id="<%=i%>" style="opacity:0"> <% } }%>
+			</div>
+		</div>
+		<div class ="elemento" id="orologio" onclick="loginmenu()">orologio</div>
+		<div class ="elemento" id="campanella" onclick="loginmenu()">campanella</div>
+		<div class ="elemento" id="avviso" onclick="loginmenu()"><h2 style="text-align: center;">Nessun avviso</h2></div>
+		<div class ="elemento" id="attivita" onclick="loginmenu()" ><h2 style="text-align: center;">Nessuna attività</h2></div>
+		<div class ="elemento" id="eventi" onclick="loginmenu()"><h2 style="text-align: center;">Nessun evento</h2></div>
+		
+		<div class ="elemento" id="notizie"onclick="loginmenu()">
+			<div  id="powered" style="position: relative; font-size: 70%;"> powered by newsapi.org </div>
+			<div id="notizia"></div>
+				
+		</div>
+		
+		<div class ="elemento" id="meteo" onclick="loginmenu()" >
+			<div class="weather-app">
+				<div class="temperature">
+					<span id="temperature">0</span>&deg; C</div> 
+				<div class="location">
+					<span id="location">Unknown</span></div>
+	 			<img id="icon" width="25%" src="weather/200.png" />
+	 	 		<div class="humidity">
+	    			
+	    				<span id="humidity">Umidità: 0</span>%
+	    				<img src="weather/humidity.png" height="16px" />
+	  			</div>
+	  
+	  			<div class="wind">
+	    			<span id="wind">0</span> Km/h <span id="direction">N</span>
+	 			</div>
+	  
+			</div>
+
+	</div>
+
+
+
+	<div id="login" >
+		<h1>Pannello di controllo dell'InfoBox</h1> 
+		
+		<button onclick="window.location.href='/uploader'">Entra</button>
+		<button onclick="window.location.href='/login/logout'">Log out</button>
+
+		<br>
+	<button type="button" id="tutto_schermo"onclick="tutto_schermo()">Schermo intero</button>
+
+	</div>
+
+
+	<script type="text/javascript" src="testo/infobox.js"></script>
+	</body>
+	
+    
+  
+</html>

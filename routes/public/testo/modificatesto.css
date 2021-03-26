@@ -1,0 +1,157 @@
+html{
+    background-color: #05386b;
+    font-family: "Verdana";
+    color: black;
+}
+.elemento{
+    background-color: #75CAF4;
+    border-radius: 10px 10px 10px 10px;
+    
+}
+
+#titolo{
+    position: absolute;
+    top: 0.5%;
+    height: 9%;
+    width: 32%;
+    left: 34%;
+}
+#titolo h1{
+    position: relative;
+    text-align: center;
+
+}
+#modifica{
+    position: absolute;
+    text-align: center;
+    top: 11%;
+    height: 60%;
+    width: 34.5%;
+    left: 0.5%;
+    overflow: hidden;
+}
+#eventi{
+    position: absolute;
+    text-align: center;
+    top:  11%;
+    left: 35.5%;
+    width: 21%;
+    height: 88.5%;
+    overflow: auto;
+}
+#attivita{
+    position: absolute;
+    text-align: center;
+    top: 11%;
+    left: 57%;
+    width: 21%;
+    height: 88.5%;
+    overflow: auto;
+}
+#avviso{
+    position: absolute;
+    text-align: center;
+    top: 11%;
+    left: 78.5%;
+    width: 21%;
+    height: 88.5%;
+    overflow: auto;
+}
+#ritorna_uploader{
+    position: absolute;
+    top:80.5%;
+    left: 0.5%;
+    width: 34.5%;
+    height: 15%;
+
+}
+table, th, td {
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 5px;
+    text-align: center;    
+  }
+  tr:hover {background-color: #f5f5f5;}
+  a.scritta:link, a.scritta:visited {
+    text-align: center;
+    font-size: 130%;
+    position: relative;
+    background-color: #75CAF4;
+    color: #05386b;
+    height:100%;
+    width: 100%;
+    padding: 0.5px 0.5px;
+    font-size: 100%;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px 10px 10px 10px;
+  }
+
+  a.scritta:hover, a.scritta:active {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #05386b;
+    color: #75CAF4;
+    border-radius: 10px 10px 10px 10px;
+  }
+  table{
+      position: relative;
+      padding: 5%;
+      
+      min-width: 100%;
+  }
+  #link{
+      position: relative;
+      height: 100%;
+      width: 100;
+  }
+  a.link:link, a.link:visited {
+    text-align: center;
+    font-size: 130%;
+    position: relative;
+    color: black
+    color: white;
+    height:100%;
+    width: 100%;
+    padding: 0.5px 0.5px;
+    font-size: 100%;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px 10px 10px 10px;
+  }
+
+  a.link:hover, a.link:active {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #05386b;
+    color: white;
+    border-radius: 10px 10px 10px 10px;
+  }
+
+  a h1{
+      position: relative;
+      top: 20%;
+  }
+  input[type=text]{
+      
+      border-color: white;
+      border-radius: 5px 5px 5px 5px;
+      padding: 0.5%;
+  }
+  #inseriscititolo{
+      position: relative;
+      top: 50%;
+  }
+  input{
+    line-height: 20px;
+}
+input[type=submit] {
+
+	background-color: white;
+	border: 2px solid white;
+	border-radius: 4px;
+}

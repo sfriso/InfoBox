@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/testo/modificacampanella.css">
+        <title>Modifica Camapnella</title>
+    </head>
+    <body>
+        <div class="elemento" id="listacampanelle">
+            <h4>Lista delle campanelle di <%=date%>:</h4>
+                <% var n = new Date(); %>
+                <% for(i=0; i < or.length; i++){ %>
+                    <div class="giorno" >  </div>
+                    <form method="GET"  action="/uploader/cancella/<%=i %>/<%=date%>">
+                    <div class="orari"><%=or[i]%> <input type="submit" value="Cancella" > </div>
+                    
+                         </form>
+                 <% }%>
+            
+        </div>
+        <div class="elemento" id="selezionato">
+            <h1  > Il giorno selezionato è <%=date%> </h1> 
+        </div>
+        <div class="elemento" id="giornisettimana">
+           <h2 > <div id="giorni"><span>
+              <a class="settimana" href="/uploader/campanelle/lunedì">Lunedì</a>
+              <a class="settimana" href="/uploader/campanelle/martedì">Martedì</a>
+              <a class="settimana" href="/uploader/campanelle/mercoledì">Mercoledì</a>
+              <a class="settimana" href="/uploader/campanelle/giovedì">Giovedì</a>
+              <a class="settimana" href="/uploader/campanelle/venerdì">Venerdì</a>
+              <a class="settimana" href="/uploader/campanelle/sabato">Sabato</a>
+              <a class="settimana" href="/uploader/campanelle/domenica">Domenica</a>
+           </span></div>
+          </h2>
+        </div>
+        <div class="elemento" id="titolo">
+            <h1>Modifica campanella</h1>
+        </div>
+        <div class="elemento" id="nuova_data">
+                <h2 > Vuoi una campanella personalizzata?</h2>
+                <form method="POST" action="/uploader/nuovacampanella/" >
+                    <input type="time" name="time" value="<%=('0'+n.getHours()).slice(-2)%>:<%=('0'+n.getMinutes()).slice(-2) %>" >
+                    <input type="date" name="nuovacampanella" value="<%= n.getFullYear()%>-<%=('0'+  (n.getMonth() +1)).slice(-2)%>-<%=('0'+  n.getDate()).slice(-2)%>">
+                    <input type="submit" value="Seleziona"></form>
+
+                   
+            
+        </div>
+
+        <div class="elemento" id="lista_giorni"> 
+                <h4 id="lista"> Lista delle campanelle personalizzate:</h4>
+                <% for(i=0; i < dat.length; i++){  %>
+                <form method="GET" action="/uploader/cancella_data/<%=dat[i]%>" id="lista">
+                    <a class="speciali"href="/uploader/campanelle/<%= dat[i].getFullYear()%>-<%=('0'+  (dat[i].getMonth() +1)).slice(-2)%>-<%=('0'+  dat[i].getDate()).slice(-2)%>"><%= dat[i].getFullYear()%>-<%=('0'+  (dat[i].getMonth() +1)).slice(-2)%>-<%=('0'+  dat[i].getDate()).slice(-2)%>   <input type="submit" value="Cancella" > </a>
+                    
+            </form>
+                 <% }%>
+            
+        </div>
+        <div class="elemento" id="nuova_campanella">
+                <h2 > Vuoi aggiungere una campanella?</h2>
+            <form method="POST" action="/uploader/campanelle/<%=date%>">
+                <input type="time" name="time" value="<%=('0'+n.getHours()).slice(-2)%>:<%=('0'+n.getMinutes()).slice(-2) %>">
+                <input type="submit" value="Seleziona">
+            </form>
+        </div>
+
+        <div  class="elemento" id="ritorna">
+            <a href="/uploader" class="menu"><h1>Ritorna al menu principale</h1></a>
+        </div>
+
+    </body>
+</html>

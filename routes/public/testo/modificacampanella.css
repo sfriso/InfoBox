@@ -1,0 +1,147 @@
+body {
+    margin: 0;
+	padding: 0;
+	overflow:hidden;
+	height: 100%;
+	width: 100%;
+	background-color: #a74949;
+	color: #a74949;
+    font-family: "Verdana";
+    text-align: center;
+    overflow: auto;
+
+}
+a.settimana:link, a.settimana:visited {
+    background-color: #dbdbdb;
+    color: white;
+    text-shadow: -2px 0 #a74949, 0 2px #a74949, 2px 0 #a74949, 0 -2px #a74949;
+    padding: 14px 0.5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+ 
+  a.speciali:link, a.settimana:visited {
+    background-color: #dbdbdb;
+    color: white;
+    padding: 14px 0.5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  a.speciali:hover, a.speciali:active {
+    background-color: white;
+    border-radius: 8px 8px 8px 8px;
+  }
+  
+  a.settimana:hover, a.settimana:active {
+    background-color: #a74949;
+    border-radius: 10px 10px 10px 10px;
+  }
+.elemento{
+	border-radius: 10px 10px 10px 10px;
+    background-color: #dbdbdb;
+    
+}
+
+.orari{
+  padding: 14px 0.5px;
+}
+#selezionato{
+    background-color: #dbdbdb;
+    position: absolute;
+  
+    top: 17%;
+    left:28%;
+    font-size: 110%;
+    right: 36%;
+    height: 9%;
+    width: 45%;
+}
+ #giornisettimana{
+    background-color: #dbdbdb;
+    position: absolute;
+    top: 29%;
+    left:28%;
+    
+    right: 36%;
+    height: 9%;
+    width: 45%;
+}
+#titolo{
+  position: absolute;
+  top: 0.5%;
+  left:28%;
+  height: 14%;
+  width: 45%;
+  text-align: center;
+  font-size: 140%;
+}
+#nuova_campanella{
+    position: absolute;
+    top: 44.5%;
+    left:28%;
+    height: 14%;
+    width: 45%;
+}
+#nuova_data{
+  position:absolute;
+  top: 65%;
+  left: 28%;
+  height: 14%;
+  width: 45%;
+}
+#listacampanelle{
+    position: absolute;
+    left:0.5%;
+    top: 0.5%;
+    right: 0.5%;
+    height: 99%;
+    width: 27%;
+}
+#lista_giorni{
+    position: absolute;
+    left:73.5%;
+    top: 0.5%;
+    right: 0.5%;
+    height: 99%;
+    width: 26%;
+}
+
+#ritorna{
+  position: absolute;
+  top: 87.5%;
+  height: 9%;
+  left:28%;
+  right: 36%;
+  width: 45%;
+  
+  border-radius: 8px 8px 8px 8px;
+}
+
+a.menu:link, a.menu:visited {
+  position:relative;
+  height: 100%;
+  width: 100%;
+  background-color: #dbdbdb;
+  color: #a74949;
+  padding: 14px 0.5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  
+  border-radius: 8px 8px 8px 8px;
+}
+a.menu:hover, a.menu:active {
+  background-color: #a74949;
+  color: white;
+  border-radius: 8px 8px 8px 8px;
+}
+
+input[type=submit]{
+  border-radius: 10px 10px 10px 10px;
+  border-color: white;
+  background-color: #a74949;
+  color: white;
+}

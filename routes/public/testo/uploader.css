@@ -1,0 +1,200 @@
+html {
+	background-color: #D8AE47;
+	color: #010101;
+	font-family: "Verdana";}
+   
+
+.elemento{
+    border-radius: 10px 10px 10px 10px;
+}
+#titolo{
+    background-color: #92B6D5;
+    position: absolute;
+    color: white;
+    text-shadow: -1.5px 0 black, 0 1.5px black, 1.5px 0 black, 0 -1.5px black;
+    top: 0.5%;
+    left:10%;
+    font-size: 130%;
+    right: 10%;
+    height: 25%;
+    width: 80%;
+}
+
+#titolo_scritta{
+    font-size: 150%;
+
+}
+
+#titolo_scritta h1{
+    padding-top: 2%; 
+}
+
+#descrizione{
+    
+    margin: 10%;
+    font-size: 140%;
+}
+
+#testo{
+    position: absolute;
+    
+    top: 30%;
+    left: 1%;
+    width: 32%;
+    height: 50%;
+}
+
+#titolo_scritta{
+    position: relative;
+   
+    text-align: center;
+}
+
+a.scritta:link, a.scritta:visited {
+    background-color: #92B6D5;
+    color: white;
+    position: relative;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    height: 100%;
+    width: 100%;
+    padding: 14px 0.5px;
+    text-align: justify;
+    font-size: 130%;
+    text-align: justify;
+    text-align-last: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  a.scritta:hover, a.scritta:active {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    background-color: #D8AE47;
+    color: white;
+    border-radius: 8px 8px 8px 8px;
+  }
+
+  a.scritta_campanelle:link, a.scritta_campanelle:visited {
+    background-color: #DD4132;
+    color: #F3E0BE;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 14px 0.5px;
+    text-align: justify;
+    font-size: 130%;
+    text-align: justify;
+    text-align-last: center;
+    text-decoration: none;
+    display: inline-block;
+    
+    border-radius: 10px 10px 10px 10px;
+  }
+  a.scritta_campanelle:hover, a.scritta_campanelle:active {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #F3E0BE;
+    color: #DD4132;
+    border-radius: 10px 10px 10px 10px;
+  }
+
+  a.scritta_multimedia:link, a.scritta_multimedia:visited {
+    background-color: #77212E;
+    color: #F5D6C6;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 14px 0.5px;
+    text-align: justify;
+    font-size: 130%;
+    text-align: justify;
+    text-align-last: center;
+    text-decoration: none;
+    display: inline-block;
+    
+    border-radius: 10px 10px 10px 10px;
+  }
+  a.scritta_multimedia:hover, a.scritta_multimedia:active {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #F5D6C6;
+    color: #77212E;
+    border-radius: 10px 10px 10px 10px;
+  }
+  
+  a.scritta_testo:link, a.scritta_testo:visited {
+    background-color: #05386b;
+    color: #75CAF4;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 14px 0.5px;
+    text-align: justify;
+    font-size: 130%;
+    text-align: justify;
+    text-align-last: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 10px 10px 10px 10px;
+  }
+ 
+  
+  a.scritta_testo:hover, a.scritta_testo:active {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #75CAF4;
+    color: #05386b;
+    border-radius: 10px 10px 10px 10px;
+  }
+#immagini{
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    left: 34%;
+    width: 32%;
+    height: 50%;
+}
+#campanelle{
+    position: absolute;
+    text-align: center;
+    top: 30%;
+    left: 67%;
+    width: 32%;
+    height: 50%;
+}
+
+#titoli_secondari{
+    position: relative;
+    padding: 5%;
+}
+.scritta{
+    border-radius: 10px 10px 10px 10px;
+    background-color: #75CAF4;
+    font-size: 150%;
+}
+
+#ritorna_home{
+    position: absolute;
+    text-align: center;
+    font-size: 130%;
+    top: 86%;
+    left: 17.5%;
+    width: 32%;
+    height: 10%;
+}
+
+#ritorna_logout{
+    position: absolute;
+    text-align: center;
+    font-size: 130%;
+    top: 86%;
+    left: 50.5%;
+    width: 32%;
+    height: 10%;
+}
+
+

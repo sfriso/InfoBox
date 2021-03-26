@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Modifica Slideshow</title>
+        <link rel="stylesheet" href="/testo/slideshowpreview.css">
+    </head>
+    <body>
+        <div class="elemento" id="titolo">
+                <h1 style=>Modifica slideshow</h1>
+        </div>
+        <div  class="elemento" id="listafile">
+                <h3 id="titolo_listafile">
+                    <% if(array.length != 0) { %>
+                        <div>File caricati</div>
+                    <% }  else { %>
+                        <div>Nessun File Caricato</div>
+                        <% } %>
+                    </h3>
+                    <%for (c = 0; c < array.length; c++) { %>
+                    <span class="elementicaricati">
+    
+                         
+                            <a  class="cancella" id="link<%=c%>" ><%= array[c] %> <input type="submit" onclick="location.href='/uploader/delete/<%= array[c]%>';" value='Cancella'style="font-size: 90%;" /></a> <br><br>
+                     
+                    
+                    </span>
+              <% } %> 
+                </div>
+        <div  class="elemento" id="slideshow">
+                <div class="container">	
+                        <% for (i = 0; i < array.length; i++){ 
+                            var lastThree = array[i].substr(array[i].length - 3);
+                            if( lastThree == 'avi' || lastThree == 'mp4') { %>
+                        <video   id="<%=i%>" class="video" style="opacity:0" muted >
+                            <source src='/slider/<%= array[i] %>'  type="video/mp4">
+                        </video>
+                        <% } else { %>
+                            <img src='/slider/<%= array[i]%>' class="image" id="<%=i%>" style="opacity:0"> <% } }%>
+                    </div>
+
+        </div>
+
+        <!--<a class="prev" onclick="avanti()">&#10094;</a>-->
+        <!--<a class="next" onclick="sliderindietro()">&#10095;</a>-->
+        <div class="elemento" id="uploader">
+                <% if(message.length > 0) {%>
+                    <div style="position: absolute; width: 100%;background-color:rgb(255, 0, 0); border: 1px solid red; border-radius: 12px; color: white; z-index: 2;"><%= message %></div>
+                <% } %>
+                <form method="POST"enctype="multipart/form-data" action="/uploader/modifica" id="caricatore">
+                    
+                   <input type="file" name="filename"  id="file" class="inputfile" /> 
+                    <input type="submit" value="carica" disabled></label>
+                    
+                    
+                </form>
+        </div>
+
+        <div  class="elemento" id="ritorna">
+            <a href="/uploader" class="menu"><h1>Ritorna al menu principale</h1></a>
+        </div>
+         <script src="http://localhost:5000/testo/jquery-3.4.1.min.js" ></script>
+            <script  >
+            $(document).ready(function(){
+                $('input[type="file"]').change( function(){
+                    $(this).next().removeAttr('disabled');
+                }).next().attr('disabled', 'disabled');
+            });
+            
+            
+            
+            var stop;
+            function videoevideo(video1, video2){
+                //video1.onended = function(){
+                    video1.style.opacity=0;
+                    video2.play();
+                    video2.style.opacity=1;
+
+                   // video1.end()
+                    
+                    video2.onended = function(){slider(0);}
+                //}
+            }
+            function immagineevideo(image, video1){
+                image.style.opacity=0;
+                video1.play();
+                video1.style.opacity=1;
+                video1.onended = function(){ slider();}
+            }
+            
+            function videoeimmagine(video, image){
+                    //video.onended = function(){
+                    video.style.opacity=0;
+                    image.style.opacity=1;
+                    stop = window.setTimeout(function(){slider()}, 5000);
+            //	}
+            }
+            function immagineeimmagine(image1, image2){
+                image1.style.opacity=0;
+                image2.style.opacity=1;
+                stop = window.setTimeout( function(){slider()}, 5000)
+            }
+            
+            function decide(prima, dopo){
+                if(prima.className == 'video'){
+                    if(dopo.className == 'video'){
+                        videoevideo(prima, dopo);
+                    }
+                    if(dopo.className == 'image')
+                        videoeimmagine(prima, dopo);
+                }
+                if(prima.className == 'image'){
+                    if(dopo.className == 'video'){
+                        immagineevideo(prima, dopo);
+                    }
+                    if(dopo.className == 'image'){
+                        immagineeimmagine(prima, dopo);
+                    }
+                }
+                
+            }
+
+
+            
+            var k = document.getElementsByClassName('video').length + document.getElementsByClassName('image').length -1;
+            var i = -1;
+            function slider(){
+               
+                
+                
+                
+                i = k;
+                k++;
+               // about = document.getElementById("link"+k).style.backgroundColor = 'grey';
+           
+                if(document.getElementById((k).toString()) == null){
+                    k= 0;
+                }
+                decide(document.getElementById(i.toString()), document.getElementById((k).toString()));
+                
+            }
+
+            //non funziona
+            function sliderindietro(){
+                i = k;
+                k--;
+               // about = document.getElementById("link"+k).style.backgroundColor = 'grey';
+           
+                if(document.getElementById((k).toString()) == null){
+                    k= 0;
+                }
+                decide(document.getElementById(i.toString()), document.getElementById((k).toString()));
+                
+            }
+
+            function avanti(){
+                var el;
+                
+                for(var z=0; z <= document.getElementsByClassName('video').length + document.getElementsByClassName('image').length -1; z++){
+                    
+                el=document.getElementById(z.toString())
+                
+                    console.log(el);
+                    if(el.style.opacity == 1){
+                        console.log("trovato!");
+                        console.log(el.tagName);
+                        if(el.tagName == "VIDEO"){
+                            console.log("VIDEO");
+                            
+                            
+                            el.currentTime=el.duration;
+                            
+                            slider();
+                            
+                        }
+                        else if (el.tagName == "IMG"){
+                            console.log("IMG");
+                            
+                            clearTimeout(stop);
+                            slider();
+                        }
+                    }
+                }
+                /*controllo chi ha opacity == 1 con un for
+                    se è un video setto con jquery il minutaggio del video al suo ultimo minuto e secondo
+                    se è un immagine faccio clearTimeout del timeout e poi richiamo la funzione dello slider*/
+
+                    /* $('#liveVideo').attr('duration') funzione che ritorna la durata del video*/
+
+            }
+
+            function indietro(){
+
+
+            }
+            /* per la funzione di indietro faccio la stessa cosa di avanti ma in piu decremento k e richiamo la funzione dello slider*/
+
+            
+            window.onload= function(){
+                slider();
+            }
+            
+            </script>
+    </body>
+</html>

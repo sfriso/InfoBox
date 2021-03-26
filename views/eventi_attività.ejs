@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Modifica eventi e attività e avvisi
+        </title>
+        <style>
+            table, th, td {
+              border: 1px solid black;
+              border-collapse: collapse;
+            }
+            th, td {
+              padding: 5px;
+              text-align: left;    
+            }
+            </style>
+    </head>
+    <body><% var n = new Date()%>
+        <form method="POST" action="/uploader/testo/" autocomplete="off">
+            Cosa devi inserire? </br>
+            eventi <input type="radio" name="tipo" value="eventi"></br>
+            avviso <input type="radio" name="tipo" value="avviso"></br>
+            attività <input type="radio" name="tipo" value="attività"></br>
+            Inserisci titolo: <input type="text" name="title"></br>
+            Inserisci il testo: <input type="text" name="text"></br>
+            Data dell'evento: <input type="date" name="data_testo" value="<%= n.getFullYear()%>-<%=('0'+  (n.getMonth() +1)).slice(-2)%>-<%=('0'+  n.getDate()).slice(-2)%>">
+            <input type="submit" name="b_evento" value="salva">
+            
+            </form>
+            <h3>Eventi</h3>
+            <div id="eventi"></div>
+            <h3>Attvità</h3>
+            <div id="attivita"></div>
+            <h3>Avviso</h3>
+            <div id="avviso"></div>
+            
+           
+        <script >
+                var urleventi = "http://localhost:5000/uploader/rispostaeventi";
+                var urlddddd = "/uploader/testo/eventi.js" 
+                var urlattività = "http://localhost:5000/uploader/rispostaattivita";
+                var urlavviso = "http://localhost:5000/uploader/rispostaavviso";
+        
+        
+        function sendRequest(url, tipo){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var data = JSON.parse(xmlhttp.responseText);
+                data = JSON.parse(data);
+            var html = '';
+            
+            var i=-1;
+            var max;
+            var titolo;
+            var testo;
+           // for(i = 0; i < data.length; i++){}
+            data.forEach(function(){
+                i++;
+                max = i;
+                var titolo = data[i].titolo;
+                var testo = data[i].testo;
+                var giorno = data[i].data;
+                html += '<table id='+i+' ><tr><th class="title">' + titolo + '</th></tr> ';
+                html += '<tr><td class="testo" >' + testo + '</td></tr>';
+                html += '<tr><td class="data type="date" >' + giorno.slice(0, giorno.length-14)  + '</td> </tr><br>';
+             
+                html += '<br><tr><td><a href="/uploader/cancella'+tipo+'/'+i+'" >cancella</a></td></tr>'
+            })
+            var ins = document.getElementById(tipo);
+            console.log("html");
+            ins.innerHTML = html;
+        }
+        };
+        
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();    
+        };
+        
+        
+    window.onload = function() {
+        sendRequest(urleventi, "eventi");
+        sendRequest(urlattività, "attivita");
+        sendRequest(urlavviso, "avviso");
+        
+        }
+                </script>
+    </body>
+    
+</html>

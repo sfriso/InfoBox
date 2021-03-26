@@ -1,0 +1,25 @@
+{
+  "name": "InfoBox",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.0",
+    "express-fileupload": "^1.1.5",
+    "express-layout": "^0.1.0",
+    "express-session": "^1.16.1",
+    "http": "0.0.0",
+    "https": "^1.0.0",
+    "mysql": "^2.17.1",
+    "package": "^1.0.1",
+    "package.json": "^2.0.1"
+  },
+  "author": "alessandro sfriso",
+  "devDependencies": {
+    "standard": "^14.3.1"
+  }
+}

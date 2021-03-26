@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Modifica Testo</title>
+        <link rel="stylesheet" type="text/css" href="/testo/modificatesto.css">
+    </head>
+    <body>
+        <div class="elemento" id="titolo"><h1>Modifica testo</h1></div>
+        <div class="elemento" id="modifica">
+                <% var n = new Date()%>
+                <form method="POST" action="/uploader/testo/" autocomplete="off" id="form">
+                    <h1 class="h1"> Inserisci testo</h1> </br>
+                    <h3>Seleziona una tipologia</h3>
+                    Eventi <input type="radio" name="tipo" value="eventi">
+                    &emsp;
+                       Attività <input type="radio" name="tipo" value="attività">
+                       &emsp;  
+                       Avvisi <input type="radio" name="tipo" value="avviso"> <br>
+                    <label id="inseriscititolo"><h4>Inserisci il titolo: </h4><input type="text" name="title" size="50" maxlength="50" style=" border-radius: 10px 10px 10px 10px;" ></label></br>
+                    <label id="inseiriscitesto"><h4>Inserisci la descrizione: </h4>
+                        <textarea rows="7" cols="71" name="text" form="form" maxlength="500" style="resize: none; font-family: 'Verdana';  border-radius: 10px 10px 10px 10px;"></textarea></label></br>
+                    <h4>Inserisci data: </h4><input type="date" name="data_testo" style=" border-radius: 10px 10px 10px 10px;" value="<%= n.getFullYear()%>-<%=('0'+  (n.getMonth() +1)).slice(-2)%>-<%=('0'+  n.getDate()).slice(-2)%>">
+                    <input type="submit" name="b_evento" value="salva">
+                    
+                    </form>
+
+        </div>
+        <div class="elemento" id="eventi"><h1 class="h1">Eventi</h1></div>
+        <div class="elemento" id="avviso"><h1 class="h1">Avvisi</h1></div>
+        <div class="elemento" id="attivita" ><h1 class="h1">Attività</h1></div>
+        <div class="elemento" id="ritorna_uploader"><a href="/uploader" class="scritta"><h1>Ritorna al menu principale</h1></a></div>
+        
+        <script >
+                var urleventi = "http://localhost:5000/uploader/rispostaeventi";
+                var urlddddd = "/uploader/testo/eventi.js" 
+                var urlattività = "http://localhost:5000/uploader/rispostaattivita";
+                var urlavviso = "http://localhost:5000/uploader/rispostaavviso";
+        
+        
+        function sendRequest(url, tipo){
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var data = JSON.parse(xmlhttp.responseText);
+                data = JSON.parse(data);
+            var html = '';
+            
+            var i=-1;
+            var max;
+            var titolo;
+            var testo;
+           // for(i = 0; i < data.length; i++){}
+            data.forEach(function(){
+                i++;
+                max = i;
+                var titolo = data[i].titolo;
+                var testo = data[i].testo;
+                var giorno = data[i].data;
+                html += '<table id='+i+' ><tr><th class="title">' + titolo + '</th></tr> ';
+                html += '<tr><td class="testo" >' + testo + '</td></tr>';
+                html += '<tr><td class="data type="date" >' + giorno.slice(0, giorno.length-14)  + '</td> </tr><br>';
+             
+                html += '<br><tr><td><a href="/uploader/cancella'+tipo+'/'+i+'" class="link" >cancella</a></td></tr>'
+            })
+            var ins = document.getElementById(tipo);
+            console.log("html");
+            ins.innerHTML += html;
+        }
+        };
+        
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();    
+        };
+        
+        
+    window.onload = function() {
+        sendRequest(urleventi, "eventi");
+        sendRequest(urlattività, "attivita");
+        sendRequest(urlavviso, "avviso");
+        
+        }
+                </script>
+    </body>
+</html>

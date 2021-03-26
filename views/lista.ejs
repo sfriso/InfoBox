@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pagina di Modifica</title>
+</head>
+<body>
+	<div>Seleziona un immagine o un video</div>
+    <form method="POST"enctype="multipart/form-data" action="/uploader/modifica">
+        <% if(message.length > 0) {%>
+            <div style="background-color:lightcoral; border: 2px solid red; border-radius: 12px; width: 200px"><%= message %></div>
+        <% } %>
+		<input type="file" name="filename"> 
+		<input type="submit" value="upload">
+		
+	</form>
+	<% if(array.length != 0) { %>
+		<div>File caricati</div>
+	<% }  else { %>
+		<div>Nessun File Caricato</div>
+		<% } %>
+
+	<% for (i = 0; i < array.length; i++) { %>
+			
+			<form method="get" action="/uploader/delete/<%= array[i] %>">
+			<button> <%= array[i] %> </button>
+			</form>
+		
+  <% } %> 
+</body>
+</html>
